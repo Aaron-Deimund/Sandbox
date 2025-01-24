@@ -1,0 +1,108 @@
+:root{
+	--toggle-animation-time: .2s;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	width: 200px;
+	height: 350px;
+	background-color: gainsboro;
+	border: 2px solid darkgrey;
+	border-radius: 5px;
+}
+
+.container {
+	width: min-content;
+	gap: 5px;
+	padding: 15px;
+	background-color: #ccc;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+
+	.card {
+		width: 630px;
+		height: 75px;
+	}
+
+}
+
+.grid-header {
+	background-color: #ccc;
+	justify-items: center;
+	padding: 15px;
+
+	.view-toggle__container {
+		position: relative;
+		background-color: white;
+		border-radius: 50px;
+		z-index: 0;
+		display: flex;
+		gap: 5px;
+		height: 20px;
+		align-items: center;
+
+		.view-toggle {
+			position: relative;
+			margin: 0 10px;
+			z-index: 3;
+		}
+
+	}
+}
+
+.grid-toggle-overlay {
+	z-index: 1;
+	background-color:rgb(5, 5, 143);
+	position: absolute;
+	height: 20px;
+	width: 50%;
+	top: 0;
+	left: 0;	
+	outline: 1px solid rgb(213, 213, 247);
+	border-radius: 50px;
+	box-shadow: inset 2px 2px 3px .5px rgba(213, 213, 247, .75);
+}
+
+.flip__in-progress,
+.unflip__in-progress{
+	animation-name: flip;
+	animation-duration: var(--toggle-animation-time);	
+}
+
+.unflip__in-progress{
+	animation-direction: reverse;
+}
+
+.flip__end-state{
+	transform: translateX(100%); 
+}
+
+.unflip__end-state{
+	transform: translateX(0); 
+}
+
+
+@keyframes flip {
+	0%   {transform: translateX(0);}
+	100% {transform: translateX(100%)}
+}
+
+.selected-view{
+	color: white;
+}
+
+.view-toggle{
+	font-size: .75rem;
+	font-family: sans-serif;
+	transition: all var(--toggle-animation-time);
+	width: 20px;
+}

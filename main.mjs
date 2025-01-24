@@ -1,5 +1,4 @@
-import { myFunction } from "./javascript_modules/myModule.mjs";
+import { addToggleEvents } from "./javascript_modules/toggle.mjs";
 
-
-
-console.log(myFunction([1,2,4]));
+addToggleEvents()
+alert("working")
